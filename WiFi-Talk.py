@@ -93,6 +93,7 @@ def draw_text(info, color):
 
 draw_setup()
 
+curr_live = 0
 prev_peer = 0
 draw_text(allPeers[prev_peer], module.color565(0, 0, 255))
 prev_mess = 0
@@ -111,12 +112,21 @@ while True:
                         text="SEND",
                         font=FONT,
                         color=module.color565(0, 255, 0))
+            
+            if allTexts[prev_mess].text == "Live in 5s" and curr_live != prev_peer:
+                other_peer_ind = 0
+                if prev_peer == 0:
+                    ind = 1 
+                esp.send(allPeers[other_peer_ind].mac, ("Toggle Live").encode("utf-8"))
+                curr_live = prev_peer
+            
             time.sleep(0.5)
             display.draw_text(x=180, y=10,
                         text="SEND",
                         font=FONT,
                         color=COLOR)
             continue
+            
         
         
         min_mess = abs(y - allTexts[min(range(len(allTexts)), key=lambda i: abs(y - allTexts[i].y - 24))].y)
