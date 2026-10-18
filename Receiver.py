@@ -7,7 +7,7 @@ import espnow
 
 SCREEN_WIDTH = 240
 SCREEN_HEIGHT = 320
-FONT = Font.XglcdFont(path="fonts/Bally5x8.c", width=5, height=8)
+FONT = Font.XglcdFont(path="fonts/ArcadePix9x11.c", width=9, height=11)
 COLOR = module.color565(255, 0, 0)
 
 PIN_RST = Pin(17)
@@ -20,7 +20,7 @@ PIN_BL = Pin(21, Pin.OUT)
 PIN_BL.value(1)
 
 spi = SPI(1, baudrate=20000000, sck=PIN_SCLK, mosi=PIN_MOSI, miso=PIN_MISO)
-display = module.Display(spi, cs=PIN_CS, dc=PIN_DC, rst=PIN_RST, rotation=90)
+display = module.Display(spi, cs=PIN_CS, dc=PIN_DC, rst=PIN_RST)
 
 wifiRadio = network.WLAN(network.WLAN.IF_STA)
 wifiRadio.active(True)
@@ -30,7 +30,7 @@ esp = espnow.ESPNow()
 esp.active(True)
 
 def draw_message(msg):
-    msg = msg.decode(encoding="utf-8")
+    msg = msg.decode("utf-8")
     display.draw_text(x=50, y=50,
                 text=msg,
                 font=FONT,
