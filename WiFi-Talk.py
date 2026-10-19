@@ -116,7 +116,7 @@ while True:
             if allTexts[prev_mess].text == "Live in 5s" and curr_live != prev_peer:
                 other_peer_ind = 0
                 if prev_peer == 0:
-                    ind = 1 
+                    other_peer_ind = 1 
                 esp.send(allPeers[other_peer_ind].mac, ("Toggle Live").encode("utf-8"))
                 curr_live = prev_peer
             
