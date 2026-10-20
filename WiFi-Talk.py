@@ -126,13 +126,8 @@ while True:
                         font=FONT,
                         color=COLOR)
             continue
-            
         
-        
-        min_mess = abs(y - allTexts[min(range(len(allTexts)), key=lambda i: abs(y - allTexts[i].y - 24))].y)
-        min_peer = abs(y - allPeers[min(range(len(allPeers)), key=lambda i: abs(y - allPeers[i].y - 24))].y)
-        
-        if min_mess < min_peer:
+        if y > 95:
             ind_mess = min(range(len(allTexts)), key=lambda i: abs(y - allTexts[i].y - 24))
             message = allTexts[ind_mess].text
             # selection
