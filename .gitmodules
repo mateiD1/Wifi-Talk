@@ -1,0 +1,3 @@
+[submodule "micropython-ili9341"]
+	path = micropython-ili9341
+	url = https://github.com/rdagger/micropython-ili9341.git

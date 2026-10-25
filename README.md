@@ -9,3 +9,6 @@ Three ESP32 boards that communicate with each other. One master board sends mess
 - A status bar on the display shows the state: red = live, green = off.
 
 ## Setup
+- Flash all ESP with MicroPython.
+- Clone repo and submodule
+- Flash code on ESP
