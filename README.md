@@ -11,4 +11,5 @@ Three ESP32 boards that communicate with each other. One master board sends mess
 ## Setup
 - Flash all ESP with MicroPython.
 - Clone repo and submodule
+- Get mac addresses of your devices
 - Flash code on ESP
